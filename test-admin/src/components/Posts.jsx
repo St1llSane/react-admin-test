@@ -12,9 +12,14 @@ import {
   useRecordContext,
 } from 'react-admin'
 
+const postsFilters = [
+  <TextInput source="q" label="Search" alwaysOn />,
+  <ReferenceInput source="userId" label="User" reference="users" />,
+]
+
 export const Posts = () => {
   return (
-    <List>
+    <List filters={postsFilters}>
       <Datagrid>
         <TextField source="id" />
         <ReferenceField source="userId" reference="users" />
