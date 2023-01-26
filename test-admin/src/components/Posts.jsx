@@ -1,5 +1,5 @@
 import {
-	Create,
+  Create,
   Datagrid,
   Edit,
   EditButton,
@@ -9,6 +9,7 @@ import {
   SimpleForm,
   TextField,
   TextInput,
+  useRecordContext,
 } from 'react-admin'
 
 export const Posts = () => {
@@ -24,9 +25,14 @@ export const Posts = () => {
   )
 }
 
+const PostTitle = () => {
+  const record = useRecordContext()
+  return <span>Post {record ? `${record.title}` : ''}</span>
+}
+
 export const PostsEdit = () => {
   return (
-    <Edit>
+    <Edit title={<PostTitle />}>
       <SimpleForm>
         <TextInput source="id" disabled />
         <ReferenceInput source="userId" reference="users" />
