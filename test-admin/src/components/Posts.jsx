@@ -1,12 +1,16 @@
 import {
   Datagrid,
+  Edit,
   EditButton,
   List,
   ReferenceField,
+  ReferenceInput,
+  SimpleForm,
   TextField,
+  TextInput,
 } from 'react-admin'
 
-const Posts = () => {
+export const Posts = () => {
   return (
     <List>
       <Datagrid>
@@ -19,4 +23,20 @@ const Posts = () => {
   )
 }
 
-export default Posts
+export const PostsEdit = () => {
+  return (
+    <Edit>
+      <SimpleForm>
+        <TextInput source="id" disabled />
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" sx={{ width: '100%', maxWidth: '600px' }} />
+        <TextInput
+          source="body"
+          multiline
+          rows={10}
+          sx={{ width: '100%', maxWidth: '800px' }}
+        />
+      </SimpleForm>
+    </Edit>
+  )
+}
