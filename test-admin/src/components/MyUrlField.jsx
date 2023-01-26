@@ -1,9 +1,15 @@
 import { useRecordContext } from 'react-admin'
+import { Link } from '@mui/material'
+import LaunchRounded from '@mui/icons-material/LaunchRounded'
 
 const MyUrlField = ({ source }) => {
   const record = useRecordContext()
-  if (!record) return null
-  return <a href={record[source]}>{record[source]}</a>
+  return record ? (
+    <Link href={record[source]} sx={{ textDecoration: 'none' }}>
+      {record[source]}
+      <LaunchRounded sx={{ fontSize: 15, ml: 1}} />
+    </Link>
+  ) : null
 }
 
 export default MyUrlField
