@@ -1,4 +1,5 @@
 import {
+	Create,
   Datagrid,
   Edit,
   EditButton,
@@ -38,5 +39,22 @@ export const PostsEdit = () => {
         />
       </SimpleForm>
     </Edit>
+  )
+}
+
+export const PostsCreate = () => {
+  return (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" sx={{ width: '100%', maxWidth: '600px' }} />
+        <TextInput
+          source="body"
+          multiline
+          rows={10}
+          sx={{ width: '100%', maxWidth: '800px' }}
+        />
+      </SimpleForm>
+    </Create>
   )
 }
